@@ -1,0 +1,10 @@
+<div class="navbar">
+  <%= link_to 'Home', cocktails_path %>
+</div>
+
+<%= simple_form_for [ @cocktail, @dose ] do |f| %>
+  <%= f.association :ingredient %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>
+

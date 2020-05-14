@@ -1,0 +1,20 @@
+<div class="navbar">
+  <%= link_to 'Home', cocktails_path %>
+</div>
+
+<div class="card">
+  <h2><%=@cocktail.name%></h2>
+  <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %>
+
+  <div class="ingredients" >
+    <% @cocktail.doses.each do |dose| %>
+    <div class="doses">
+      <h5><%= dose.ingredient.name.capitalize %> </h5>
+      <p><%= dose.description %></p>
+      <%= link_to edit_cocktail_dose_path(@cocktail, dose) do %>
+        <i class="fas fa-edit"></i>
+        <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
