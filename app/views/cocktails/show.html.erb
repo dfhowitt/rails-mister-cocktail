@@ -8,11 +8,16 @@
 
   <div class="ingredients" >
     <% @cocktail.doses.each do |dose| %>
-    <div class="doses">
+    <div class="card">
       <h5><%= dose.ingredient.name.capitalize %> </h5>
       <p><%= dose.description %></p>
       <%= link_to edit_cocktail_dose_path(@cocktail, dose) do %>
         <i class="fas fa-edit"></i>
+        <% end %>
+
+        <%= link_to cocktail_dose_path(@cocktail, dose), method: :delete, data:
+          { confirm: 'Are you certain you want to delete this?' } do %>
+          <i class="fas fa-trash"></i>
         <% end %>
     </div>
     <% end %>
