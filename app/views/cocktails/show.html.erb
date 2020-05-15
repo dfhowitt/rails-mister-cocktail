@@ -21,6 +21,8 @@
 
   <div class="card-product" >
     <% @cocktail.doses.each do |dose| %>
+    <div class="card-photo"><%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+</div>
     <div class="card-product-infos">
       <h5><%= dose.ingredient.name.capitalize %> </h5>
       <p><%= dose.description %></p>
