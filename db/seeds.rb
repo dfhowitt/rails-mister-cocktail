@@ -8,6 +8,7 @@
 require 'json'
 require 'open-uri'
 puts "Destroying all ingredients..."
+Cocktail.destroy_all
 Ingredient.destroy_all
 puts "Creating all ingredients"
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
@@ -19,6 +20,3 @@ ingredients_array.each do |ingredient|
   Ingredient.create(name: ingredient_name)
 end
 
-Cocktail.create(name: "Gin & Tonic")
-Cocktail.create(name: "Jigglypuff")
-Cocktail.create(name: "Dissaronno Sour")

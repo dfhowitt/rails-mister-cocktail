@@ -1,14 +1,27 @@
-<div class="navbar">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to 'Home', cocktails_path %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to 'Add a cocktail', new_cocktail_path(@cocktail) %>
+      </li>
+    </ul>
+  </div>
 </div>
 
-<div class="card">
+<div class="container">
   <h2><%=@cocktail.name%></h2>
   <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %>
 
-  <div class="ingredients" >
+  <div class="card-product" >
     <% @cocktail.doses.each do |dose| %>
-    <div class="card">
+    <div class="card-product-infos">
       <h5><%= dose.ingredient.name.capitalize %> </h5>
       <p><%= dose.description %></p>
       <%= link_to edit_cocktail_dose_path(@cocktail, dose) do %>
